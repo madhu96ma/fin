@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="foo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="changeContent()">Change Content</button>
+</div>
+
+<script>
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+ if (xhr.readyState === 4 && xhr.status === 200) {
+   const jsonData = JSON.parse(xhr.responseText);
+   console.log(jsonData);
+ }
+};
+xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+xhr.send();
+
+</script>
